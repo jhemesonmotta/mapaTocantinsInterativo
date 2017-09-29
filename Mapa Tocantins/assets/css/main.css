@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+
+body {
+    background: #fff
+}
+
+#hovered-region,
+#clicked-region {
+    border: 1px solid #e5eabd;
+    display: inline-block;
+    margin-right: 3px;
+    padding: 4px 8px;
+    text-align: center;
+    width: 432px
+}
+
+#hovered-region span,
+#clicked-region span {
+    color: #E85124;
+    font-weight: bold
+}
+
+#tocantins-map {
+    height: 650px;
+    width: 450px
+}

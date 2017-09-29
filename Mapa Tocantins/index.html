@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapa do Tocantins</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" media="screen" />
+    <script src="assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+    <script src="assets/js/tocantins.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="clicked-region">Cidade Clicada: <span>??</span></div>
+      <div id="tocantins-map"></div>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+          var map_settings = {
+              map: 'tocantins',
+              zoomButtons: false,
+              zoomMax: 1,
+              regionStyle: {
+                  initial: {
+                      'fill-opacity': 0.9,
+                      stroke: '#000',
+                      'stroke-width': 100,
+                      'stroke-opacity': 1
+                  },
+                  hover: {
+                      fill: '#FA7346'
+                  }
+              },
+              backgroundColor: '#fff',
+              series: {
+                  regions: [{
+                      values: {
+                          Palmas: '#E85124',
+                          Araguaina: '#E85124',
+                      },
+                      attribute: 'fill'
+                  }]
+              },
+              container: $('#tocantins-map'),
+              onRegionClick: function (event, code) {
+                  $('#clicked-region span').text(code);
+                  //window.open('http://www.google.com.br');
+              },
+              onRegionOver: function (event, code) {
+                  $('#hovered-region span').text(code);
+              }
+          };
+
+          map = new jvm.WorldMap($.extend(true, {}, map_settings));
+      });
+    </script>
+  </body>
+</html>
